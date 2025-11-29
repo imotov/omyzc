@@ -1,0 +1,38 @@
+# -------------------------
+# OS / Filesystem junk
+# -------------------------
+.DS_Store
+Thumbs.db
+._*
+*.swp
+*.swo
+
+# -------------------------
+# Zsh / Shell runtime files
+# -------------------------
+.zsh_history
+.zsh_sessions
+.zsh-update
+zcompdump*
+*.zwc*        # compiled zsh scripts
+
+# -------------------------
+# Oh-My-Zsh/Plugins/Themes
+# -------------------------
+
+# Ignore installed external plugins downloaded via script
+custom/plugins/*/node_modules/
+custom/plugins/*/.venv/
+custom/plugins/*/dist/
+custom/plugins/*/target/
+
+# If you pull 3rd-party plugins here instead of submodules
+# add their own ignore rules per plugin
+
+# -------------------------
+# Logs / temp / runtime
+# -------------------------
+*.log
+*.tmp
+.cache/
+tmp/
