@@ -1,6 +1,6 @@
 # Custom files for Oh-My-Zsh
 
-To install replace the following lines in `~/.zshrc:
+To install replace the following lines in `~/.zshrc`:
 ```shell
 ZSH_THEME="eastwood"
 ZSH_CUSTOM="/Users/igor/Projects/imotov/omyzc"
