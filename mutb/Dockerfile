@@ -4,6 +4,7 @@ FROM debian:stable-slim
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    fdupes \
     exiftool \
     # add whatever you like here...
  && rm -rf /var/lib/apt/lists/*

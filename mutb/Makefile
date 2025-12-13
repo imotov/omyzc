@@ -28,3 +28,10 @@ run:
 		-w "$$PWD" \
 		--user "$$(id -u):$$(id -g)" \
 		$(FULL_TAG) $$cmd
+
+interactive:
+	docker run --rm -it \
+		-v "$$PWD":"$$PWD" \
+		-w "$$PWD" \
+		--user "$$(id -u):$$(id -g)" \
+		$(FULL_TAG) bash
