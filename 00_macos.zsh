@@ -2,6 +2,9 @@ OS=$(uname)
 
 if [[ $OS == "Darwin" ]]; then
     PATH=$PATH:$HOME/.local/bin
+        
+    # Load SSH keys from macOS keychain
+    ssh-add --apple-load-keychain -q
 
     # Setup homebrew
     if [ -s "/opt/homebrew/bin/brew" ]; then
