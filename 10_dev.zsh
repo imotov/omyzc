@@ -1,9 +1,9 @@
 # ========= Github specific settings ========= 
 function gff {
-	git merge --ff-only $1/$(current_branch)
+	git merge --ff-only $1/$(git_current_branch)
 }
 alias gffo='gff origin'
-alias gffu='gff upstream
+alias gffu='gff upstream'
 alias gffi='gff imotov'
 
 alias gfi='gf imotov'
@@ -14,9 +14,9 @@ alias gpi='gp imotov "$(git_current_branch)"'
 alias gpu='gp upstream "$(git_current_branch)"'
 alias gpo='gp origin "$(git_current_branch)"'
 
-alias gmiff='git merge --ff-only imotov/$(current_branch)'
-alias gmuff='git merge --ff-only upstream/$(current_branch)'
-alias gmoff='git merge --ff-only origin/$(current_branch)'
+alias gmiff='git merge --ff-only imotov/$(git_current_branch)'
+alias gmuff='git merge --ff-only upstream/$(git_current_branch)'
+alias gmoff='git merge --ff-only origin/$(git_current_branch)'
 
 # fetch PR from remote 
 function gprf {
