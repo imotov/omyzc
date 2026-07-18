@@ -1,0 +1,31 @@
+#!/bin/bash
+#
+# Usage on linux:
+# $ sudo apt install zsh git curl -y
+# $ /bin/bash -c "$(curl -fsSL  https://raw.githubusercontent.com/imotov/omyrc/main/bootstrap)"
+#
+
+set -e
+OS=$(uname)
+PROJECT_HOME="$HOME/Projects/imotov"
+OMYZC_HOME="$PROJECT_HOME/omyzc"
+
+if [[ $OS == "Linux" ]]; then
+    mkdir -p "$PROJECT_HOME"
+    cd "$PROJECT_HOME"
+    git clone git@github.com:imotov/omyzc.git
+    chsh $USER -s /usr/bin/zsh
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+
+    sed -i.bak -E \
+        -e 's|^[[:space:]]*#?[[:space:]]*ZSH_THEME=.*|ZSH_THEME="eastwood"|' \
+        -e 's|^[[:space:]]*#?[[:space:]]*ZSH_CUSTOM=.*|ZSH_CUSTOM="$HOME/Projects/imotov/omyzc"|' \
+        -e 's|^[[:space:]]*#?[[:space:]]*plugins=\(.*\)|plugins=(git docker docker-compose)|' \
+        "$HOME/.zshrc"
+
+    git config --global user.name "Igor Motov"
+    git config --global user.email "igor@motovs.org"
+fi
+
+cd "$OMYZC_HOME"
