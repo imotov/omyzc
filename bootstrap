@@ -21,7 +21,7 @@ if [[ $OS == "Linux" ]]; then
     sed -i.bak -E \
         -e 's|^[[:space:]]*#?[[:space:]]*ZSH_THEME=.*|ZSH_THEME="eastwood"|' \
         -e 's|^[[:space:]]*#?[[:space:]]*ZSH_CUSTOM=.*|ZSH_CUSTOM="$HOME/Projects/imotov/omyzc"|' \
-        -e 's|^[[:space:]]*#?[[:space:]]*plugins=\(.*\)|plugins=(git docker docker-compose)|' \
+        -e 's|^[[:space:]]*#?[[:space:]]*plugins=\(.*\)|plugins=(git docker docker-compose mamba conda-env)|' \
         "$HOME/.zshrc"
 
     git config --global user.name "Igor Motov"
