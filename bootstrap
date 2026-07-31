@@ -2,7 +2,7 @@
 #
 # Usage on linux:
 # $ sudo apt install zsh git curl -y
-# $ /bin/bash -c "$(curl -fsSL  https://raw.githubusercontent.com/imotov/omyrc/main/bootstrap)"
+# $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/imotov/omyzc/main/bootstrap)"
 #
 
 set -e
@@ -14,7 +14,7 @@ if [[ $OS == "Linux" ]]; then
     mkdir -p "$PROJECT_HOME"
     cd "$PROJECT_HOME"
     git clone git@github.com:imotov/omyzc.git
-    chsh $USER -s /usr/bin/zsh
+    grep -q "^$USER:" /etc/passwd && chsh $USER -s /usr/bin/zsh
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 
