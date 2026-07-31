@@ -11,7 +11,7 @@ by Oh-My-Zsh into an interactive zsh shell, so changes take effect on the next n
 
 Install (from README.md): point Oh-My-Zsh at this repo by setting in `~/.zshrc`:
 ```shell
-ZSH_THEME="eastwood"
+ZSH_THEME="westwood"
 ZSH_CUSTOM="/Users/igor/Projects/imotov/omyzc"
 plugins=(git docker docker-compose)
 ```

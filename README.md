@@ -2,7 +2,7 @@
 
 To install replace the following lines in `~/.zshrc`:
 ```shell
-ZSH_THEME="eastwood"
+ZSH_THEME="westwood"
 ZSH_CUSTOM="/Users/igor/Projects/imotov/omyzc"
 plugins=(git docker docker-compose)
 ```
