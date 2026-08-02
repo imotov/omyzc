@@ -18,6 +18,9 @@ if [[ $OS == "Darwin" ]]; then
     xcode-select -p >/dev/null 2>&1 || { echo "Error: Xcode Command Line Tools are required (run 'xcode-select --install')." >&2; exit 1; }
 fi
 
+ssh -o BatchMode=yes -o StrictHostKeyChecking=accept-new -T git@github.com 2>&1 | grep -q "successfully authenticated" \
+    || { echo "Error: unable to authenticate to GitHub over SSH. Add an SSH key to your GitHub account first (https://docs.github.com/en/authentication/connecting-to-github-with-ssh)." >&2; exit 1; }
+
 read -p "Enter your git email address: " GIT_EMAIL
 git config --global user.name "Igor Motov"
 git config --global user.email "$GIT_EMAIL"
