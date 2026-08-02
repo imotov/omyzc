@@ -32,14 +32,23 @@ else
 fi
 
 mkdir -p "$PROJECT_HOME"
-cd "$PROJECT_HOME"
-git clone git@github.com:imotov/omyzc.git
+if [[ -d "$OMYZC_HOME" ]]; then
+    echo "$OMYZC_HOME already exists, skipping clone."
+else
+    cd "$PROJECT_HOME"
+    git clone git@github.com:imotov/omyzc.git
+fi
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+if [[ -d "$HOME/.oh-my-zsh" ]]; then
+    echo "Oh My Zsh already installed, skipping."
+else
+    RUNZSH=no CHSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
+echo Updating $HOME/.zshrc...
 sed -i.bak -E \
     -e 's|^[[:space:]]*#?[[:space:]]*ZSH_THEME=.*|ZSH_THEME="westwood"|' \
     -e 's|^[[:space:]]*#?[[:space:]]*ZSH_CUSTOM=.*|ZSH_CUSTOM="$HOME/Projects/imotov/omyzc"|' \
     -e 's|^[[:space:]]*#?[[:space:]]*plugins=\(.*\)|plugins=(git docker docker-compose mamba conda-env)|' \
     "$HOME/.zshrc"
-
+echo done.
